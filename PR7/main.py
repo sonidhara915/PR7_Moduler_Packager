@@ -44,9 +44,27 @@ def main():
 
         elif ch == 6:
 
-            module = input("Enter module for attribute:")
+             module = input(
+                "Enter module name (datetime/mathematical/random1/uuid1/file1): "
+            )
 
-            print("Available Attributes:",dir(module))
+             if module == "datetime":
+                print("Available Attributes:", dir(modules.datentime1))
+
+             elif module == "mathematical":
+                print("Available Attributes:", dir(modules.mathematical))
+
+             elif module == "random1":
+                print("Available Attributes:", dir(modules.random1))
+
+             elif module == "uuid1":
+                print("Available Attributes:", dir(modules.uuid1))
+
+             elif module == "file1":
+                print("Available Attributes:", dir(modules.file1))
+
+             else:
+                print("Module not found.")
 
         elif ch == 7:
 

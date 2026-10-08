@@ -23,33 +23,39 @@ def random_list():
 
     try:
 
-        s = int(input("Enter list size:"))
+        size = int(input("Enter list size:"))
 
-        S = int(input("Enter minimum num:"))
+        s = int(input("Enter minimum num:"))
 
         e = int(input("Enter maximum num:"))
 
-        assert s < 0 or S > e,"Invalid range for size"
+        if size < 0 or s > e:
+            print("Invalid range for size or numbers")
+            return
 
-        number = [random.randint(S.e) for _ in range(s)]
+        number = [random.randint(s, e) for _ in range(size)]
 
-        print("Rendom List:",number)
+        print("Rendom List:", number)
 
     except ValueError:
 
-        print("Invalid Value") 
+        print("Invalid Value")
 
 def password():
 
     try:
 
-            l = int(input("Enter password length:"))
+        l = int(input("Enter password length:"))
 
-            c = string.ascii_letters+string.digits+string.punctuation
+        if l <= 0:
+            print("Invalid password length")
+            return
 
-            p = ''.join(random.choice(c) for i in range(l))
+        c = string.ascii_letters + string.digits + string.punctuation
 
-            print("Random Password:",p)
+        p = ''.join(random.choice(c) for i in range(l))
+
+        print("Random Password:", p)
 
     except ValueError:
 

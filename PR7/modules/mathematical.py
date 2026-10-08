@@ -8,9 +8,13 @@ def factorial_num():
 
         num = int(input("Emter a number for fectorial:"))
 
+        if num < 0:
+            print("Invalid Input: Factorial cannot be calculated for negative numbers.")
+            return
+
         fectorial = math.factorial(num)
 
-        print("Factorial :",fectorial)
+        print("Factorial :", fectorial)
 
     except ValueError:
 
@@ -55,6 +59,23 @@ def trigonometric():
 
         print("Invalid input")
 
+def logarithm():
+
+    try:
+
+        num = float(input("Enter a number:"))
+
+        if num <= 0:
+            print("Invalid input: Logarithm is defined only for positive numbers.")
+            return
+
+        print("Natural Log:", round(math.log(num), 4))
+        print("Log Base 10:", round(math.log10(num), 4))
+
+    except ValueError:
+
+        print("Invalid input")
+
 def area_shapes():
 
     print("\n Area of Geometric Shapes:")
@@ -62,22 +83,40 @@ def area_shapes():
     print("2.Rectangle")
 
     choice = int(input("enter your choice:"))
+    try:
+        choice = int(input("enter your choice:"))
 
-    if choice == 1:
+        if choice == 1:
 
-        r = float(input("Enter a redious of circle:"))
-        print(circle.area(r))
+            r = float(input("Enter a redious of circle:"))
 
-    elif choice == 2:
+           
+            if r < 0:
+                print("Invalid radius")
+                return
 
-        l = float(input("Enter a lenght:"))
-        w = float(input("Enter a width:"))
+            print(circle.area(r))
 
-        print(rectangle.area_rec(l,w))
+        elif choice == 2:
 
-    else:
+            l = float(input("Enter a lenght:"))
+            w = float(input("Enter a width:"))
 
-        print("Invalid Choice")
+          
+            if l < 0 or w < 0:
+                print("Invalid length or width")
+
+                return
+
+            print(rectangle.area_rec(l, w))
+
+        else:
+
+            print("Invalid Choice")
+
+    except ValueError:
+
+        print("Invalid Input")
 
 
 
@@ -89,8 +128,9 @@ def math_menu():
         print("1.Calculate Fectorial")
         print("2.Solve Compound Intrest")
         print("3.Trgonometric Calculations")
-        print("4.Area of Geometric Shapes")
-        print("5.Back to Main Menu")
+        print("4.Logerithem Calculation")
+        print("5.Area of Geometric Shapes")
+        print("6.Back to Main Menu")
 
         ch = int(input("Enter your choice:"))
 
@@ -108,9 +148,13 @@ def math_menu():
 
         elif ch == 4:
 
-            area_shapes()
+            logarithm()
 
         elif ch == 5:
+
+            area_shapes()
+
+        elif ch == 6:
             
                 break
         else:

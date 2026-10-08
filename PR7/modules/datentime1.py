@@ -10,18 +10,26 @@ def current_datetime():
 
 def diffrent_datetime():
 
+    data1 = input("Enter first date (YYYY-MM-DD): ")
+    data2 = input("Enter second date (YYYY-MM-DD): ")
+
     try:
-        start_date = input("Enter your start date(YYYY-MM-DD):")
-        end_date = input("Enter your end date(YYYY-MM-DD):")
 
-        date1 = datetime.strptime(start_date,"%y-%m-%d")
-        date2 = datetime.strptime(end_date,"%y-%m-%d")
+        date1 = datetime.datetime.strptime(
+            data1, "%Y-%m-%d"
+        ).date()
 
-        diffrent = abs((date2-date1).days)
+        date2 = datetime.datetime.strptime(
+            data2, "%Y-%m-%d"
+        ).date()
 
-        print("The days different between two dates:",diffrent)
+        difference = abs((date2 - date1).days)
+
+        print("Difference:", difference, "days")
+
     except ValueError:
-        print("Invalid date enter please try again")
+
+        print("Invalid date format. Use YYYY-MM-DD.")
 
 
 def formate_datetime():
@@ -55,24 +63,19 @@ def stopwatch():
 
 def countdown_timer():
 
-     try:
-          second = int(input("Enter couuntdown seconds:"))
+    ch1 = int(input("Enter countdown seconds: "))
 
-          assert second > 0 ,"Enter only positive number."
+    print("\nCountdown started...")
 
-          for i in range (second,0,-1):
+    while ch1 > 0:
 
-               print("Time Left:",i,"seconds")
+        print(ch1)
 
-               print("Time 's up!")
-               
-               time.sleep(1)
+        time.sleep(1)
 
-               
+        ch1 -= 1
 
-     except ValueError:
-          
-          print("Invalid input.")
+    print("Time's up!")
 
 def datetime_menu():
     while True:
